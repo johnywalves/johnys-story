@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#e0138c" />
+
+    <title>Johny's Story</title>
+    <meta name="title" property="og:title" content="Johny's story" />
+    <meta name="description" property="og:description" content="Presentation of life, professional and goals" />
+    <meta name="image" property="og:image" itemprop="image" content="/path/to/thumbnail" />
+    <meta name="type" property="og:type" content="website" />
+    <meta name="url" property="og:url" content="https://url.page" />
+    <meta name="site_name" property="og:site_name" content="Page Name" />
+    <meta name="locale" property="og:locale" content="pt_BR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://url.page" />
+    <meta name="twitter:title" content="Page Title" />
+    <meta name="twitter:description" content="Page Description" />
+    <meta name="twitter:image" content="/path/to/thumbnail" />
+
+    <style>
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Black.ttf);
+            font-weight: 900;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-ExtraBlack.ttf);
+            font-weight: 800;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Bold.ttf);
+            font-weight: 700;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-SemiBold.ttf);
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Medium.ttf);
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Regular.ttf);
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Light.ttf);
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-ExtraLight.ttf);
+            font-weight: 200;
+        }
+
+        @font-face {
+            font-family: LexendDeca;
+            src: url(./fonts/LexendDeca/LexendDeca-Thin.ttf);
+            font-weight: 100;
+        }
+
+        @font-face {
+            font-family: Vibur;
+            src: url(./fonts/Vibur/Vibur-Regular.ttf);
+            font-weight: 400;
+        }
+
+        /* Reset CSS */
+        *,
+        *:before,
+        *:after {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --14px: 0.875rem;
+            --16px: 1rem;
+            --18px: 1.125rem;
+            --21px: 1.3125rem;
+            --24px: 1.5rem;
+            font-family: LexendDeca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            scroll-snap-type: y mandatory;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        a,
+        a:hover,
+        a:visited {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Content CSS */
+        :root {
+            --color-background: #282c35;
+            --color-highlight: #e0138c;
+            --color-text: #f3f3f3;
+            --color-shadow: #f3f3f380;
+        }
+
+        body {
+            background: var(--color-background);
+            color: var(--color-text);
+
+            display: flex;
+            flex-direction: column;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            scroll-snap-align: start;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .gallery {
+            transform: translateY(-2rem);
+        }
+
+        .photos {
+            margin: 4rem 0;
+        }
+
+        .gallery picture:nth-child(2),
+        .photos picture:nth-child(1) {
+            transform: translate(0, 1rem) rotate(-10deg);
+            z-index: 2;
+        }
+
+        .gallery picture:nth-child(1),
+        .gallery picture:nth-child(3),
+        .photos picture:nth-child(2) {
+            transform: translate(-0.5rem, 1.5rem) rotate(5deg);
+            z-index: 1;
+        }
+
+        .row div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row div.left {
+            align-items: flex-start;
+        }
+
+        h1 {
+            font-size: 10rem;
+            text-shadow: 2px 2px 1px var(--color-background);
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--color-highlight);
+            font-size: 4rem;
+            text-shadow: 2px 2px 1px var(--color-text);
+        }
+
+        img {
+            margin: 1.5rem 0;
+        }
+
+        p {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        p small {
+            font-size: 60%;
+            text-decoration: line-through;
+        }
+
+        picture {
+            background: var(--color-text);
+            border: 1rem solid var(--color-text);
+            box-shadow: 4px 4px 8px 4px var(--color-shadow);
+        }
+
+        .row.gallery picture  {
+            border-width: 0.75rem !important;
+        }
+
+        picture img {
+            width: fit-content;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+        }
+
+        picture p {
+            background: var(--color-text);
+            color: var(--color-background);
+            margin: 0;
+            padding: 1rem 0 0;
+            text-align: center;
+            font-size: 2.5vw;
+            font-family: Vibur;
+        }
+
+        .gallery picture p {
+            font-size: 2rem;
+            padding: 0.5rem 0 0;
+        }
+
+        section:nth-of-type(odd) {
+            background: var(--color-highlight);
+        }
+
+        section:nth-of-type(odd) h2 {
+            color: var(--color-background);
+        }
+    </style>
+
+    <link rel="icon" href="./imgs/favicon.png" type="image/png" />
+</head>
+
+<body>
+    <section class="cover">
+        <h1>Johny W. Alves</h1>
+        <p>A short story of life</p>
+    </section>
+
+    <section>
+        <h2>Birth in</h2>
+        <p>August, 19, 1986 (36 year old)</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/baby.jpg" alt="" style="width:20vw" />
+                <p>Beautiful <small>and fat</small> baby</p>
+            </picture>
+            <picture>
+                <img src="./imgs/susanoo-vs-orochi.webp" alt="" style="width:25vw" />
+                <p>Suzano - São Paulo</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>When was a child</h2>
+        <p>I played a lot of video games, the ones I loved the most were</p>
+        <div class="row gallery">
+            <picture>
+                <img src="./imgs/super-nintendo.jpg" alt="" style="width:20vw" />
+                <p>Super Nintendo</p>
+            </picture>
+        </div>
+        <div class="row gallery">
+            <picture>
+                <img src="./imgs/super-mario-world.jpg" alt="" style="width:15vw" />
+                <p>Mario (SNES)</p>
+            </picture>
+            <picture>
+                <img src="./imgs/super-metroid.webp" alt="" style="width:15vw" />
+                <p>Metroid (SNES)</p>
+            </picture>
+            <picture>
+                <img src="./imgs/super-the-legend-of-zelda.jpg" alt="" style="width:15vw" />
+                <p>Zelda (SNES)</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Now that I've grown</h2>
+        <p>I matured a lot my taste</p>
+        <div class="row gallery">
+            <picture>
+                <img src="./imgs/switch-console.jpg" alt="" style="width:20vw" />
+                <p>Nintendo Switch <small>best console ever</small></p>
+            </picture>
+        </div>
+        <div class="row gallery">
+            <picture>
+                <img src="./imgs/switch-mario.jpg" alt="" style="width:15vw" />
+                <p>Mario (Switch)</p>
+            </picture>
+            <picture>
+                <img src="./imgs/switch-metroid.jpg" alt="" style="width:15vw" />
+                <p>Metroid (Switch)</p>
+            </picture>
+            <picture>
+                <img src="./imgs/switch-zelda.jpg" alt="" style="width:15vw" />
+                <p>Zelda (Switch)</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Live at</h2>
+        <p>Hot and Cozy</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/sjrp.jpg" alt="" style="width:30vw" />
+                <p>São José do Rio Preto - SP</p>
+            </picture>
+            <picture>
+                <img src="./imgs/renata.jpg" alt="" style="width:20vw" />
+                <p>With Renata <small>ingrata</small></p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Lovely Family</h2>
+        <p>People to care for and love</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/emily.jpg" alt="" style="width:20vw" />
+                <p>Emily (daughter)</p>
+            </picture>
+            <picture>
+                <img src="./imgs/felipe.jpg" alt="" style="width:30vw" />
+                <p>Felipe (godson)</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Bike</h2>
+        <p>I love to run, but I converted to two wheels</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/bike.jpg" alt="" style="width:35vw" />
+                <p>My skinny <small>unfortunately only her</small></p>
+            </picture>
+            <picture>
+                <img src="./imgs/bike-wall.jpg" alt="" style="width:35vw" />
+                <p>Small room</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Gym</h2>
+        <p>without crying and suffering, conscience weighs</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/gym.jpg" alt="" style="width:20vw" />
+                <p>Lifting irons</p>
+            </picture>
+        </div>
+    </section>
+
+    <section>
+        <h2>Percussion</h2>
+        <p>Experience in music with Samba and Rock</p>
+        <div class="row photos">
+            <picture>
+                <img src="./imgs/samba.jpg" alt="" style="width:20vw" />
+                <p>Samba</p>
+            </picture>
+            <picture>
+                <img src="./imgs/drummer.jpg" alt="" style="width:20vw" />
+                <p>Rock</p>
+            </picture>
+        </div>
+    </section>
+
+    <section class="credits">
+        <h2>Thank you very much</h2>
+        <div class="row">
+            <div class="left">
+                <p>@johnywalves</p>
+                <p>Johny W. Alves</p>
+                <p>https://johnywalves.com.br</p>
+            </div>
+            <img src="./imgs/profile_serious.png" alt="" width="512px" />
+        </div>
+    </section>
+</body>
+
+<script type="text/javascript"></script>
+
+</html>
