@@ -11,7 +11,8 @@
     <title>Johny's Story</title>
     <meta name="title" property="og:title" content="Johny's Story" />
     <meta name="description" property="og:description" content="A little presentation of Johny`s life" />
-    <meta name="image" property="og:image" itemprop="image" content="https://johnywalves.github.io/johnys-story/imgs/thumbnail.jpg" />
+    <meta name="image" property="og:image" itemprop="image"
+        content="https://johnywalves.github.io/johnys-story/imgs/thumbnail.jpg" />
     <meta name="type" property="og:type" content="website" />
     <meta name="url" property="og:url" content="https://johnywalves.github.io/johnys-story/" />
     <meta name="site_name" property="og:site_name" content="Johny's Story" />
@@ -100,9 +101,9 @@
             --18px: 1.125rem;
             --21px: 1.3125rem;
             --24px: 1.5rem;
-            font-family: LexendDeca, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            scroll-snap-type: y mandatory;
+            font-family: LexendDeca, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
         }
 
         ol,
@@ -125,19 +126,24 @@
             --color-shadow: #f3f3f380;
         }
 
+        html,
+        body {
+            scroll-snap-type: y mandatory;
+        }
+
         body {
             background: var(--color-background);
             color: var(--color-text);
 
             display: flex;
             flex-direction: column;
-            scroll-snap-type: y mandatory;
         }
 
         section {
             width: 100%;
             height: 100vh;
             scroll-snap-align: start;
+            overflow: hidden;
         }
 
         section {
@@ -166,14 +172,29 @@
 
         .gallery picture:nth-child(2),
         .photos picture:nth-child(1) {
-            transform: translate(0, 1rem) rotate(-10deg);
+            transform: translate(0, 1rem) rotate(-10deg) scale(1.5);
             z-index: 2;
         }
 
         .gallery picture:nth-child(1),
         .gallery picture:nth-child(3),
         .photos picture:nth-child(2) {
-            transform: translate(-0.5rem, 1.5rem) rotate(5deg);
+            transform: translate(-0.5rem, 1.5rem) rotate(5deg) scale(1.5);
+            z-index: 1;
+        }
+
+        .gallery picture.show:nth-child(2),
+        .photos picture.show:nth-child(1) {
+            opacity: 1;
+            transform: translate(0, 1rem) rotate(-10deg) scale(1);
+            z-index: 2;
+        }
+
+        .gallery picture.show:nth-child(1),
+        .gallery picture.show:nth-child(3),
+        .photos picture.show:nth-child(2) {
+            opacity: 1;
+            transform: translate(-0.5rem, 1.5rem) rotate(5deg) scale(1);
             z-index: 1;
         }
 
@@ -214,13 +235,40 @@
             text-decoration: line-through;
         }
 
+        section picture:nth-of-type(2),
+        section div:nth-of-type(2) picture:nth-of-type(1) {
+            transition-delay: 0.5s;
+        }
+
+        section picture:nth-of-type(3),
+        section div:nth-of-type(2) picture:nth-of-type(2) {
+            transition-delay: 1s;
+        }
+
+        section picture:nth-of-type(4),
+        section div:nth-of-type(2) picture:nth-of-type(3) {
+            transition-delay: 1.5s;
+        }
+
+        section picture:nth-of-type(5),
+        section div:nth-of-type(2) picture:nth-of-type(4) {
+            transition-delay: 2s;
+        }
+
         picture {
+            opacity: 0;
+            transition: all 0.75s;
             background: var(--color-text);
             border: 1rem solid var(--color-text);
             box-shadow: 4px 4px 8px 4px var(--color-shadow);
+
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
         }
 
-        .row.gallery picture  {
+        .row.gallery picture {
             border-width: 0.75rem !important;
         }
 
@@ -269,11 +317,11 @@
         <p>August, 19, 1986 (36 year old)</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/baby.jpg" alt="" style="width:20vw" />
+                <img src="./imgs/baby.jpg" alt="" style="width: 20vw" />
                 <p>Beautiful <small>and fat</small> baby</p>
             </picture>
             <picture>
-                <img src="./imgs/susanoo-vs-orochi.webp" alt="" style="width:20vw" />
+                <img src="./imgs/susanoo-vs-orochi.webp" alt="" style="width: 20vw" />
                 <p>Suzano - São Paulo</p>
             </picture>
         </div>
@@ -284,21 +332,21 @@
         <p>I played a lot of video games, the ones I loved the most were</p>
         <div class="row gallery">
             <picture>
-                <img src="./imgs/super-nintendo.jpg" alt="" style="width:15vw" />
+                <img src="./imgs/super-nintendo.jpg" alt="" style="width: 15vw" />
                 <p>Super Nintendo</p>
             </picture>
         </div>
         <div class="row gallery">
             <picture>
-                <img src="./imgs/super-mario-world.jpg" alt="" style="width:10vw" />
+                <img src="./imgs/super-mario-world.jpg" alt="" style="width: 10vw" />
                 <p>Mario (SNES)</p>
             </picture>
             <picture>
-                <img src="./imgs/super-metroid.webp" alt="" style="width:10vw" />
+                <img src="./imgs/super-metroid.webp" alt="" style="width: 10vw" />
                 <p>Metroid (SNES)</p>
             </picture>
             <picture>
-                <img src="./imgs/super-the-legend-of-zelda.jpg" alt="" style="width:10vw" />
+                <img src="./imgs/super-the-legend-of-zelda.jpg" alt="" style="width: 10vw" />
                 <p>Zelda (SNES)</p>
             </picture>
         </div>
@@ -309,21 +357,21 @@
         <p>I matured a lot my taste</p>
         <div class="row gallery">
             <picture>
-                <img src="./imgs/switch-console.jpg" alt="" style="width:20vw" />
+                <img src="./imgs/switch-console.jpg" alt="" style="width: 20vw" />
                 <p>Nintendo Switch <small>best console ever</small></p>
             </picture>
         </div>
         <div class="row gallery">
             <picture>
-                <img src="./imgs/switch-mario.jpg" alt="" style="width:10vw" />
+                <img src="./imgs/switch-mario.jpg" alt="" style="width: 10vw" />
                 <p>Mario (Switch)</p>
             </picture>
             <picture>
-                <img src="./imgs/switch-metroid.jpg" alt="" style="width:10vw" />
+                <img src="./imgs/switch-metroid.jpg" alt="" style="width: 10vw" />
                 <p>Metroid (Switch)</p>
             </picture>
             <picture>
-                <img src="./imgs/switch-zelda.jpg" alt="" style="width:10vw" />
+                <img src="./imgs/switch-zelda.jpg" alt="" style="width: 10vw" />
                 <p>Zelda (Switch)</p>
             </picture>
         </div>
@@ -334,11 +382,11 @@
         <p>Hot and Cozy</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/sjrp.jpg" alt="" style="width:25vw" />
+                <img src="./imgs/sjrp.jpg" alt="" style="width: 25vw" />
                 <p>São José do Rio Preto - SP</p>
             </picture>
             <picture>
-                <img src="./imgs/renata.jpg" alt="" style="width:20vw" />
+                <img src="./imgs/renata.jpg" alt="" style="width: 20vw" />
                 <p>With Renata <small>ingrata</small></p>
             </picture>
         </div>
@@ -349,11 +397,11 @@
         <p>People to care for and love</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/emily.jpg" alt="" style="width:20vw" />
+                <img src="./imgs/emily.jpg" alt="" style="width: 20vw" />
                 <p>Emily (daughter)</p>
             </picture>
             <picture>
-                <img src="./imgs/felipe.jpg" alt="" style="width:25vw" />
+                <img src="./imgs/felipe.jpg" alt="" style="width: 25vw" />
                 <p>Felipe (godson)</p>
             </picture>
         </div>
@@ -364,11 +412,11 @@
         <p>I love to run, but I converted to two wheels</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/bike.jpg" alt="" style="width:25vw" />
+                <img src="./imgs/bike.jpg" alt="" style="width: 25vw" />
                 <p>My skinny <small>unfortunately only her</small></p>
             </picture>
             <picture>
-                <img src="./imgs/bike-wall.jpg" alt="" style="width:25vw" />
+                <img src="./imgs/bike-wall.jpg" alt="" style="width: 25vw" />
                 <p>Small room</p>
             </picture>
         </div>
@@ -379,7 +427,7 @@
         <p>without crying and suffering, conscience weighs</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/gym.jpg" alt="" style="width:15vw" />
+                <img src="./imgs/gym.jpg" alt="" style="width: 15vw" />
                 <p>Lifting irons</p>
             </picture>
         </div>
@@ -390,11 +438,11 @@
         <p>Experience in music with Samba and Rock</p>
         <div class="row photos">
             <picture>
-                <img src="./imgs/samba.jpg" alt="" style="width:15vw" />
+                <img src="./imgs/samba.jpg" alt="" style="width: 15vw" />
                 <p>Samba</p>
             </picture>
             <picture>
-                <img src="./imgs/drummer.jpg" alt="" style="width:15vw" />
+                <img src="./imgs/drummer.jpg" alt="" style="width: 15vw" />
                 <p>Rock</p>
             </picture>
         </div>
@@ -413,6 +461,19 @@
     </section>
 </body>
 
-<script type="text/javascript"></script>
+<script type="text/javascript">
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll("picture");
+    hiddenElements.forEach((el) => observer.observe(el));
+</script>
 
 </html>
